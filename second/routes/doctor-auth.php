@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Doctor\Auth\ConfirmablePasswordController;
+/*use App\Http\Controllers\Doctor\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Doctor\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Doctor\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Doctor\Auth\NewPasswordController;
 use App\Http\Controllers\Doctor\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Doctor\Auth\VerifyEmailController;
+use App\Http\Controllers\Doctor\Auth\VerifyEmailController;*/
 use App\Http\Controllers\Doctor\Auth\DoctorLoginController;
 use App\Http\Controllers\Doctor\Auth\DoctorRegisteredController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +23,7 @@ Route::prefix('doctor')->middleware('guest:doctor')->group(function () {
 
     Route::post('login', [DoctorLoginController::class, 'store']);
 
-        Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+    /*Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('doctor.password.request');
 
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
@@ -33,14 +33,14 @@ Route::prefix('doctor')->middleware('guest:doctor')->group(function () {
         ->name('doctor.password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
-        ->name('doctor.password.store');
+        ->name('doctor.password.store');*/
 
 
 });
 
 Route::prefix('doctor')->middleware('auth:doctor')->group(function () {
 
-    Route::get('verify-email', EmailVerificationPromptController::class)
+    /*Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('doctor.verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
@@ -54,7 +54,7 @@ Route::prefix('doctor')->middleware('auth:doctor')->group(function () {
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
         ->name('doctor.password.confirm');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);*/
 
 
     Route::post('logout', [DoctorLoginController::class, 'destroy'])

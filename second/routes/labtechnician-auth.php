@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\LabTechnician\Auth\ConfirmablePasswordController;
+/*use App\Http\Controllers\LabTechnician\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\LabTechnician\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\LabTechnician\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\LabTechnician\Auth\NewPasswordController;
 use App\Http\Controllers\LabTechnician\Auth\PasswordResetLinkController;
-use App\Http\Controllers\LabTechnician\Auth\VerifyEmailController;
+use App\Http\Controllers\LabTechnician\Auth\VerifyEmailController;*/
 use App\Http\Controllers\LabTechnician\Auth\LabTechnicianLoginController;
 use App\Http\Controllers\LabTechnician\Auth\LabTechnicianRegisteredController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +23,7 @@ Route::prefix('labtechnician')->middleware('guest:labtechnician')->group(functio
 
     Route::post('login', [LabTechnicianLoginController::class, 'store']);
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+    /*Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('labtechnician.password.request');
 
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
@@ -33,14 +33,14 @@ Route::prefix('labtechnician')->middleware('guest:labtechnician')->group(functio
         ->name('labtechnician.password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
-        ->name('labtechnician.password.store');
+        ->name('labtechnician.password.store');*/
 
 
 });
 
 Route::prefix('labtechnician')->middleware('auth:labtechnician')->group(function () {
 
-    Route::get('verify-email', EmailVerificationPromptController::class)
+    /*Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('labtechnician.verification.notice');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
@@ -54,7 +54,7 @@ Route::prefix('labtechnician')->middleware('auth:labtechnician')->group(function
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
         ->name('labtechnician.password.confirm');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);*/
 
 
     Route::post('logout', [LabTechnicianLoginController::class, 'destroy'])
